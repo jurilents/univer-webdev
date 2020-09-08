@@ -1,0 +1,73 @@
+{
+  "name": "canvar",
+  "version": "1.0.2",
+  "description": "Nice element, bro",
+  "private": true,
+  "scripts": {
+    "watch": "npm run build && webpack --watch",
+    "server": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "build": "cross-env NODE_ENV=development webpack --mode development",
+    "build:dev": "cross-env NODE_ENV=production webpack --mode production",
+    "analytic": "webpack --json > analitic.json && webpack-bundle-analyzer analitic.json"
+  },
+  "keywords": [
+    "webpack",
+    "node.js",
+    "canvas",
+    "sass",
+    "typescript",
+    "babel",
+    "eslint"
+  ],
+  "author": {
+    "name": "JuriLents",
+    "email": "keeeneeek@gmail.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jurilents/univer-webdev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jurilents/univer-webdev/issues"
+  },
+  "homepage": "https://github.com/jurilents/univer-webdev#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.2.2",
+    "eslint": "^7.8.1",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.1.0",
+    "html-webpack-plugin": "^4.4.1",
+    "mini-css-extract-plugin": "^0.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.1",
+    "terser-webpack-plugin": "^4.1.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
