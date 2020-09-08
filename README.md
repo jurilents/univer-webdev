@@ -3,9 +3,9 @@
 ## How to use
 
 ### Installation
-1. <code></code>
-1. <code></code>
-1. <code></code>
+1. Install NodeJS and NPM
+1. <code>npm install</code>
+1. <code>npm run server</code>
 
 ### Command list: npm run
 - <code>watch</code> => build webpack project and enable live reloading
