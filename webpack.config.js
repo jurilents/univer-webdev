@@ -1,3 +1,4 @@
+const {readdirSync} = require("fs");
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -44,6 +45,28 @@ const scriptLoaders = preset => {
     return loaders;
 }
 
+const minifyHtmlOptions = {
+    collapseWhitespace: is_PROD,
+    // removeComments: is_PROD,
+    // removeRedundantAttributes: is_PROD,
+    // useShortDoctype: is_PROD
+};
+
+function templateHtmlWebpackPlugin(srcDir, distPath) {
+    const templateFiles = readdirSync(path.resolve(__dirname, srcDir))
+    return templateFiles.map(item => {
+        // Split names and extension
+        const parts = item.split('.')
+        const name = parts[0]
+        const extension = parts[1]
+        return new HtmlWebpackPlugin({
+            filename: `${distPath}/${name}.html`,
+            template: path.resolve(__dirname, `${srcDir}/${name}.${extension}`),
+            minify: minifyHtmlOptions,
+        });
+    });
+}
+
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -67,27 +90,18 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
-            minify: {
-                collapseWhitespace: is_PROD,
-                // removeComments: is_PROD,
-                // removeRedundantAttributes: is_PROD,
-                // useShortDoctype: is_PROD
-            }
+            minify: minifyHtmlOptions,
         }),
         new CopyPlugin({
             patterns: [{
                 from: 'assets',
                 to: 'assets',
-            },
-                {
-                    from: 'views',
-                    to: 'views',
-                }]
+            }]
         }),
         new MiniCssExtractPlugin({
             filename: filename('css')
         })
-    ],
+    ].concat(templateHtmlWebpackPlugin('src/views', 'views')),
     module: {
         rules: [
             {

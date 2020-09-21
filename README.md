@@ -2,6 +2,9 @@
 
 ## How to use
 
+### To open project in browser
+> __https://jurilents.github.io/univer-webdev/dist/__
+
 ### Installation
 1. Install NodeJS and NPM
 1. <code>npm install</code>

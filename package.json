@@ -7,7 +7,7 @@
     "watch": "npm run build && webpack --watch",
     "server": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
     "build": "cross-env NODE_ENV=development webpack --mode development",
-    "build:dev": "cross-env NODE_ENV=production webpack --mode production",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "analytic": "webpack --json > analitic.json && webpack-bundle-analyzer analitic.json"
   },
   "keywords": [
