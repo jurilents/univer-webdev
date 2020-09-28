@@ -1,10 +1,15 @@
+@import "reset.css"
 @import "../../node_modules/normalize.css"
 @import "font-faces"
-
-@import "header"
-@import "footer"
 @import "variables"
 
+//@import "bootstrap.min.css"
+
+@import "header"
+@import "aside"
+@import "footer"
+@import "index-body"
+@import "media"
 
 html, body
   font-family: Ubuntu, Calibri, Arial, sans-serif
@@ -13,79 +18,80 @@ html, body
   margin: 0
   padding: 0
   box-sizing: border-box
-  background-color: $background-color
-  overflow: hidden
+  overflow-x: hidden
+  background: rgb(251,251,251)
+  background: linear-gradient(95deg, rgba(251,251,251,1) 10%, rgba(233,233,233,1) 20%, rgba(255,255,255,1) 30%, rgba(251,251,251,1) 70%, rgba(233,233,233,1) 80%, rgba(251,251,251,1) 90%)
 
-body
-  height: 100%
-  display: flex
-  flex-flow: column nowrap
-  align-items: center
-  justify-content: space-between
 
+b, h4, .bold, .section-title
+  font-family: "Ubuntu-Bold", sans-serif
+  font-weight: bold
 
 main
-  height: 80%
-  margin: 0 auto
-  padding: 20px 10px
+  position: relative
+  width: 77%
+  margin: 0 auto 50px auto
 
-.links
-  li
-    list-style: none
 
-    a
-      position: relative
+section
+  margin: 0 0 50px 0
+  width: 60%
+  letter-spacing: 0.033em
+  line-height: 1.25em
+
+  .section-title
+    font-size: 28px
+    font-weight: 500
+    margin: 15px -5px
+
+    &:after
+      content: ''
       display: block
-      min-height: 32px
-      color: $text-color
-      text-decoration: none
+      margin-top: 7px
+      width: 75%
+      height: 3px
+      background-color: $primary-color
+      border-radius: 15%
 
-      &:hover
-        color: darken($text-color, 5%)
+  .section-content
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    padding-top: 8px
+    font-size: 17px
+    text-align: justify
 
-        &:before
-          left: -17px
-          transition: all 0.5s ease
+    &.section-center
+      justify-content: space-evenly
 
-      &:before
-        content: ''
-        position: absolute
-        top: 3.5px
-        left: -24px
-        display: block
-        width: 12px
-        height: 12px
-        vertical-align: middle
-        background-image: url("../images/arrow.svg")
-        background-repeat: no-repeat
-        background-position: left 0
-        transition: all 0.5s ease
+    ul
+      display: block
+      width: 200px
+      list-style: circle
+      margin-bottom: 10px
 
+    .project-wrapper
+      width: 290px
+      height: auto
+      margin-bottom: 40px
 
-.big-link
-  position: absolute
-  top: 0
-  left: 0
-  display: block
-  width: 100%
-  height: 100px
-  background-color: #f02626
-  color: $text-color
-  font-size: 32px
-  text-align: center
-  letter-spacing: 5px
-  text-decoration: none
-  padding-top: 50px
-  transition: all 0.25s ease
+    img
+      width: 95%
+      height: auto
+      border-radius: 15px
 
-  &:hover
-    font-size: 40px
-    color: yellow
-    transition: all 0.25s ease
+    .section-subcontent
+      display: flex
+      flex-direction: column
+      width: 90%
+      text-align: left
+
+      h4
+        padding: 12px 0 8px 0
+
+.wide-section-content
+  width: 160%
 
 
-#game-surface
-  background-color: $text-color
 
-p
-  color: $text-color
+

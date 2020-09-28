@@ -93,13 +93,20 @@ module.exports = {
             minify: minifyHtmlOptions,
         }),
         new CopyPlugin({
-            patterns: [{
-                from: 'assets',
-                to: 'assets',
-            }]
+            patterns: [
+                {
+                    from: 'assets',
+                    to: 'assets',
+                },
+                {
+                    from: 'images',
+                    to: 'images'
+                }
+            ]
         }),
         new MiniCssExtractPlugin({
-            filename: filename('css')
+            filename: filename('css'),
+            chunkFilename: '[id].css',
         })
     ].concat(templateHtmlWebpackPlugin('src/views', 'views')),
     module: {
@@ -107,14 +114,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    {
-                        loader:
-                        MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: is_DEV,  // hot module replacement
-                            reloadAll: true
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -130,14 +130,26 @@ module.exports = {
                 use: scriptLoaders('@babel/preset-typescript')
             },
             {
-                test: /\.(png|jpg|jpeg|svg|gif)$/,
+                test: /\.(jpe?g|png|gif|svg)$/,
                 include: path.resolve(__dirname, 'src/images'),
-                use: ['file-loader']
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'images/[name].[ext]',
+                        context: 'src/images/'
+                    }
+                }]
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 include: path.resolve(__dirname, 'src/fonts'),
-                use: ['file-loader']
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/name.[ext]',
+                        context: 'src/fonts/'
+                    }
+                }]
             }
         ]
     }

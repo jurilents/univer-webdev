@@ -23,8 +23,8 @@ $ubuntu-font-path: "../fonts/Ubuntu/ubuntu";
 // Ubuntu Regular
 @include font("Ubuntu", normal, normal, $ubuntu-font-path, $formats);
 // Ubuntu Italic
-@include font("Ubuntu", normal, italic, $ubuntu-font-path + "-italic", $formats);
+@include font("Ubuntu-Italic", normal, italic, $ubuntu-font-path + "-italic", $formats);
 // Ubuntu Bold
-@include font("Ubuntu", bold, normal, $ubuntu-font-path + "-bold", $formats);
+@include font("Ubuntu-Bold", bold, normal, $ubuntu-font-path + "-bold", $formats);
 // Ubuntu Light
-@include font("Ubuntu", 200, normal, $ubuntu-font-path + "-light", $formats);
+@include font("Ubuntu-Libgt", 200, normal, $ubuntu-font-path + "-light", $formats);

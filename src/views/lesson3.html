@@ -5,24 +5,24 @@
     <meta content="width=device-width, user-scalable=np initial-scale=0, maximum-scale=1.0, minimum-scale=0.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="../assets/favicon.ico" type="image/icon">
-    <title>Lesson 2: Plane HTML</title>
-<link href="../vendors~main.css" rel="stylesheet"><link href="../main.css" rel="stylesheet"></head>
+    <title>Lesson 3: HTML with CSS</title>
+</head>
 <body>
-<header>
-    <div>
+<header class="header">
+    <div class="title-wrapper">
         <h1 id="employee-name">Yermakov Yurii</h1>
         <h2 id="employee-position">Unity C# Game Developer</h2>
     </div>
     <div class="language-switch">
         <ul>
             <li>
-                <a class="lang-en" href="#en">en</a>
+                <a class="lang lang-eng selected-lang" href="#en"></a>
             </li>
             <li>
-                <a class="lang-ru" href="#ru">ru</a>
+                <a class="lang lang-rus" href="#ru"></a>
             </li>
             <li>
-                <a class="lang-ua" href="#ua">ua</a>
+                <a class="lang lang-ukr" href="#ua"></a>
             </li>
         </ul>
     </div>
@@ -30,33 +30,45 @@
 <main>
     <aside>
         <div id="employee-photo">
-            <img src="../images/photo.jpg" alt="Yurii Yermakov">
+            <img src="../images/photo.jpg" alt="PHOTO">
         </div>
-        <div class="feedback-wrapper">
-            <p><b>Kyiv suburb, Ukraine</b></p>
+        <div class="aside-content">
+            <div class="address">
+                <p><b>Kyiv </b>| Ukraine</p>
+            </div>
+            <ul class="contacts">
+                <li>
+                    <a href="mailto:juri.lents@gmail.com">
+                        <span class="contacts-img" id="img-email"></span>
+                        <span class="text">juri.lents@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:380995332707">
+                        <span class="contacts-img" id="img-phone"></span>
+                        <span class="text">+380 99 533 27 07</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/jurilents">
+                        <span class="contacts-img" id="img-github"></span>
+                        <span class="text">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/jurilents">
+                        <span class="contacts-img" id="img-linkedin"></span>
+                        <span class="text">LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/jurilents">
+                        <span class="contacts-img" id="img-telegram"></span>
+                        <span class="text">Telegram</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <ul class="contacts">
-            <li>
-                <span id="img-email"></span>
-                <a href="mailto:juri.lents@gmail.com">juri.lents@gmail.com</a>
-            </li>
-            <li>
-                <span id="img-phone"></span>
-                <a href="tel:380995332707">+380 99 533 27 07</a>
-            </li>
-            <li>
-                <span id="img-github"></span>
-                <a href="https://github.com/jurilents">GitHub</a>
-            </li>
-            <li>
-                <span id="img-linkedin"></span>
-                <a href="https://linkedin.com/in/jurilents">LinkedIn</a>
-            </li>
-            <li>
-                <span id="img-telegram"></span>
-                <a href="https://t.me/jurilents">Telegram</a>
-            </li>
-        </ul>
     </aside>
     <section>
         <h3 class="section-title">About Me</h3>
@@ -71,7 +83,7 @@
     </section>
     <section>
         <h3 class="section-title">Skills</h3>
-        <div class="section-content">
+        <div class="section-content section-center">
             <ul>
                 <li><b>C# .Net</b> Core 3</li>
                 <li>Unity Engine</li>
@@ -96,25 +108,25 @@
         <h3 class="section-title">Education</h3>
         <div class="section-content">
             <p>
-                <b>Taras Shevchenko National University of Kyiv</b>
-                Faculty of Information Technologies
-                Network and Internet Technologies (2019-2024)
+                <b>Taras Shevchenko National University of Kyiv</b><br>
+                Faculty of Information Technologies<br>
+                Network and Internet Technologies (2019-2024)<br>
             </p>
         </div>
     </section>
     <section>
         <h3 class="section-title">Personal projects</h3>
-        <div class="section-content">
+        <div class="section-content wide-section-content">
             <div class="project-wrapper">
                 <img src="../images/game1.jpg" alt="@">
-                <div class="section-content">
+                <div class="section-subcontent">
                     <h4>SAIF Factory</h4>
                     <p>Semi-artificial bots farm based on genetic algorithms</p>
                 </div>
             </div>
             <div class="project-wrapper">
                 <img src="../images/game2.jpg" alt="@">
-                <div class="section-content">
+                <div class="section-subcontent">
                     <h4>SnakeIO</h4>
                     <p>Hybrid of classic snake game and popular AgarIO game</p>
                 </div>
@@ -122,10 +134,5 @@
         </div>
     </section>
 </main>
-
-<script>
-    // Disable all CSS
-    Array.from(document.styleSheets).forEach(sheet => sheet.disabled = true);
-</script>
-<script src="../vendors~main..js"></script><script src="../main..js"></script></body>
+</body>
 </html>
