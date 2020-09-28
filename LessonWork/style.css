@@ -68,6 +68,10 @@ h6 {
     color: var(--color-gray);
 }
 
+li {
+    list-style-type: none !important;
+}
+
 header {
     display: flex;
     width: 100%;
@@ -111,6 +115,7 @@ section {
 
 .working-dates span {
     display: block;
+    font-size: 1.1em;
 }
 
 .section-content {
@@ -152,6 +157,9 @@ aside ul {
 }
 
 
+
+
+
 @media (min-width: 1400px) {
     .content {
         width: 1250px;
@@ -167,6 +175,13 @@ aside ul {
         flex-direction: column;
     }
 
+    .section-block{
+        flex-direction: row;
+    }
+
+    .working-dates {
+        margin-bottom: 20px;
+    }
 
     main {
         width: 100%;
@@ -188,6 +203,19 @@ aside ul {
 }
 
 @media (max-width: 830px) {
+    .content {
+        width: 100%;
+    }
+
+    main {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    section {
+        margin: 0 auto;
+    }
+
     h3 {
         margin: auto;
         font-size: 1.6em;
@@ -198,13 +226,36 @@ aside ul {
         width: 0;
     }
 
+
+    .section-block{
+        flex-direction: column;
+    }
+
+
+    .working-dates {
+        margin: 0 auto;
+    }
+
+    .working-dates span {
+        display: inline-block;
+        padding-left: 20px;
+    }
+
     .contacts {
         flex-direction: column;
     }
 
     .content div {
+        width: auto;
         text-align: center;
-        width: auto !important;
+    }
+    
+    p {
+        text-align: left;
+    }
+
+    .center p{
+        text-align: center;
     }
 
     .contacts div:before {
