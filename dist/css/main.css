@@ -48,41 +48,41 @@ table {
 }
 @font-face {
   font-family: "Ubuntu";
-  src: url(fonts/ubuntu.eot) format("embedded-opentype");
-  src: url(fonts/ubuntu.eot?#iefix) format("embedded-opentype");
-  src: url(fonts/ubuntu.ttf) format("truetype");
-  src: url(fonts/ubuntu.woff) format("woff");
-  src: url(fonts/ubuntu.woff2) format("woff2");
+  src: url(../fonts/ubuntu.eot) format("embedded-opentype");
+  src: url(../fonts/ubuntu.eot?#iefix) format("embedded-opentype");
+  src: url(../fonts/ubuntu.ttf) format("truetype");
+  src: url(../fonts/ubuntu.woff) format("woff");
+  src: url(../fonts/ubuntu.woff2) format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Ubuntu";
-  src: url(fonts/ubuntu-italic.eot) format("embedded-opentype");
-  src: url(fonts/ubuntu-italic.eot?#iefix) format("embedded-opentype");
-  src: url(fonts/ubuntu-italic.ttf) format("truetype");
-  src: url(fonts/ubuntu-italic.woff) format("woff");
-  src: url(fonts/ubuntu-italic.woff2) format("woff2");
+  src: url(../fonts/ubuntu-italic.eot) format("embedded-opentype");
+  src: url(../fonts/ubuntu-italic.eot?#iefix) format("embedded-opentype");
+  src: url(../fonts/ubuntu-italic.ttf) format("truetype");
+  src: url(../fonts/ubuntu-italic.woff) format("woff");
+  src: url(../fonts/ubuntu-italic.woff2) format("woff2");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: "Ubuntu";
-  src: url(fonts/ubuntu-bold.eot) format("embedded-opentype");
-  src: url(fonts/ubuntu-bold.eot?#iefix) format("embedded-opentype");
-  src: url(fonts/ubuntu-bold.ttf) format("truetype");
-  src: url(fonts/ubuntu-bold.woff) format("woff");
-  src: url(fonts/ubuntu-bold.woff2) format("woff2");
+  src: url(../fonts/ubuntu-bold.eot) format("embedded-opentype");
+  src: url(../fonts/ubuntu-bold.eot?#iefix) format("embedded-opentype");
+  src: url(../fonts/ubuntu-bold.ttf) format("truetype");
+  src: url(../fonts/ubuntu-bold.woff) format("woff");
+  src: url(../fonts/ubuntu-bold.woff2) format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Ubuntu";
-  src: url(fonts/ubuntu-light.eot) format("embedded-opentype");
-  src: url(fonts/ubuntu-light.eot?#iefix) format("embedded-opentype");
-  src: url(fonts/ubuntu-light.ttf) format("truetype");
-  src: url(fonts/ubuntu-light.woff) format("woff");
-  src: url(fonts/ubuntu-light.woff2) format("woff2");
+  src: url(../fonts/ubuntu-light.eot) format("embedded-opentype");
+  src: url(../fonts/ubuntu-light.eot?#iefix) format("embedded-opentype");
+  src: url(../fonts/ubuntu-light.ttf) format("truetype");
+  src: url(../fonts/ubuntu-light.woff) format("woff");
+  src: url(../fonts/ubuntu-light.woff2) format("woff2");
   font-weight: 200;
   font-style: normal;
 }
@@ -97,14 +97,13 @@ table {
   min-height: 180px;
 }
 .header .title-wrapper {
-  padding: 25px;
+  padding: 35px 75px 55px 4%;
+  /*margin: 0 auto;*/
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
 }
-.header .title-wrapper {
-  padding: 35px 0 55px 12%;
-}
+
 .header h1, .header h2 {
   color: white;
   display: inline-block;
@@ -159,15 +158,15 @@ table {
   left: 3.6px;
 }
 .header .language-switch .lang-eng {
-  background-image: url(images/eng.svg);
+  background-image: url(../images/eng.svg);
   z-index: 100;
 }
 .header .language-switch .lang-rus {
-  background-image: url(images/rus.svg);
+  background-image: url(../images/rus.svg);
   z-index: 90;
 }
 .header .language-switch .lang-ukr {
-  background-image: url(images/ukr.svg);
+  background-image: url(../images/ukr.svg);
   z-index: 80;
 }
 .header .language-switch .selected-lang {
@@ -184,7 +183,7 @@ table {
   height: 42%;
   background-color: #000;
   border-radius: 50%;
-  background-image: url(images/tiny-white-arrow.svg);
+  background-image: url(../images/tiny-white-arrow.svg);
   background-repeat: no-repeat;
   background-position: center center;
   opacity: 70%;
@@ -236,34 +235,31 @@ aside .contacts .contacts-img {
   height: 33px;
   margin: 18px auto;
   mask-size: cover;
-  background: #4d4297 no-repeat center center;
+  background: no-repeat center center;
+  filter: hue-rotate(0deg) brightness(150%);
   transition: all 0.25s ease;
 }
 aside .contacts .contacts-img:hover {
   width: 38px;
   height: 38px;
-  background-color: #282525;
+  /*background-color: #282525;*/
+  filter: hue-rotate(90deg);
   transition: all 0.25s ease;
 }
 aside .contacts #img-email {
-  mask-image: url(images/email.svg);
-  -webkit-mask-image: url(images/email.svg);
+  background-image: url(../images/email.svg);
 }
 aside .contacts #img-phone {
-  mask-image: url(images/phone.svg);
-  -webkit-mask-image: url(images/phone.svg);
+  background-image: url(../images/phone.svg);
 }
 aside .contacts #img-github {
-  mask-image: url(images/github.svg);
-  -webkit-mask-image: url(images/github.svg);
+  background-image: url(../images/github.svg);
 }
 aside .contacts #img-linkedin {
-  mask-image: url(images/linkedin.svg);
-  -webkit-mask-image: url(images/linkedin.svg);
+  background-image: url(../images/linkedin.svg);
 }
 aside .contacts #img-telegram {
-  mask-image: url(images/telegram.svg);
-  -webkit-mask-image: url(images/telegram.svg);
+  background-image: url(../images/telegram.svg);
 }
 aside .contacts a {
   text-decoration: none;
@@ -296,7 +292,7 @@ body.index-body header .home {
   width: 35px;
   height: 35px;
   padding: 0 10px;
-  background-image: url(images/home.svg);
+  background-image: url(../images/home.svg);
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -340,18 +336,18 @@ body.index-body .socials li a:hover:after {
   transition: opacity 0.33s ease-in;
 }
 body.index-body .socials li a.socials-telegram {
-  mask-image: url(images/telegram.svg);
-  -webkit-mask-image: url(images/telegram.svg);
+  mask-image: url(../images/telegram.svg);
+  -webkit-mask-image: url(../images/telegram.svg);
 }
 body.index-body .socials li a.socials-github {
-  mask-image: url(images/github.svg);
-  -webkit-mask-image: url(images/github.svg);
+  mask-image: url(../images/github.svg);
+  -webkit-mask-image: url(../images/github.svg);
   width: 29.25px;
   height: 29.25px;
 }
 body.index-body .socials li a.socials-linkedin {
-  mask-image: url(images/linkedin.svg);
-  -webkit-mask-image: url(images/linkedin.svg);
+  mask-image: url(../images/linkedin.svg);
+  -webkit-mask-image: url(../images/linkedin.svg);
 }
 body.index-body .socials main {
   height: 80%;
@@ -408,7 +404,7 @@ body.index-body .links li a:before {
   width: 12px;
   height: 12px;
   vertical-align: middle;
-  background-image: url(images/arrow.svg);
+  background-image: url(../images/arrow.svg);
   background-repeat: no-repeat;
   background-position: left 0;
   transition: all 0.5s ease;
@@ -435,10 +431,6 @@ body.index-body .big-link:hover {
   transition: all 0.25s ease;
 }
 
-#game-surface {
-  background-color: #f1e8aa;
-}
-
 @media (min-width: 1400px) {
   .title-wrapper {
     width: 1100px !important;
@@ -450,6 +442,11 @@ body.index-body .big-link:hover {
   }
 }
 @media (max-width: 1054px) {
+  .title-wrapper {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
   main {
     width: 95% !important;
   }

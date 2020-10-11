@@ -1,0 +1,10 @@
+#employee-name {
+    color: white;
+    transition: color 0.5s ease-out;
+}
+
+#employee-name:hover {
+    cursor: pointer;
+    color: #f1b0b7;
+    transition: color 0.15s ease-in;
+}
