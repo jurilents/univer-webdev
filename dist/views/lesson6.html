@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=np initial-scale=0, maximum-scale=1.0, minimum-scale=0.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../favicon.ico" type="image/icon">
+    <title>AJAX requests</title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/lesson6.css">
+</head>
+<body>
+<header class="header">
+    <div class="title-wrapper">
+        <h1 id="employee-name">Yermakov Yurii</h1>
+        <h2 id="employee-position">Unity C# Game Developer</h2>
+    </div>
+    <div class="language-switch">
+        <ul>
+            <li>
+                <a class="lang lang-eng selected-lang" href="#en"></a>
+            </li>
+            <li>
+                <a class="lang lang-rus" href="#ru"></a>
+            </li>
+            <li>
+                <a class="lang lang-ukr" href="#ua"></a>
+            </li>
+        </ul>
+    </div>
+</header>
+<main>
+    <aside>
+        <div id="employee-photo">
+            <img id="employee-photo-image" src="../images/photo.jpg" alt="PHOTO">
+        </div>
+        <div class="aside-content">
+            <div class="address">
+                <p><b>Kyiv </b>| Ukraine</p>
+            </div>
+            <ul class="contacts">
+                <li>
+                    <a href="mailto:juri.lents@gmail.com">
+                        <span class="contacts-img" id="img-email"></span>
+                        <span id="email-field" class="text">juri.lents@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:380995332707">
+                        <span class="contacts-img" id="img-phone"></span>
+                        <span class="text">+380 99 533 27 07</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/jurilents">
+                        <span class="contacts-img" id="img-github"></span>
+                        <span class="text">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/jurilents">
+                        <span class="contacts-img" id="img-linkedin"></span>
+                        <span class="text">LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/jurilents">
+                        <span class="contacts-img" id="img-telegram"></span>
+                        <span class="text">Telegram</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <section>
+        <h3 class="section-title">About Me</h3>
+        <div class="section-content">
+            <p>
+                I am a second year student who actively studying backend and game development in parallel with my
+                studies at the university. I plan to apply for the position of a junior developer in the field of game
+                development based on the Unity Engine. I am actively developing and improving myself as much as possible
+                in order to be useful and I was not ashamed of the work done.
+            </p>
+        </div>
+    </section>
+    <section>
+        <h3 class="section-title">Skills</h3>
+        <div class="section-content section-center">
+            <ul>
+                <li><b>C# .Net</b> Core 3</li>
+                <li>Unity Engine</li>
+                <li><b>Python 3</b></li>
+                <li>HTML, CSS (Sass)</li>
+                <li>JavaScript <b>(TypeScript)</b></li>
+                <li>Git, GitHub</li>
+                <li>Docker</li>
+            </ul>
+            <ul>
+                <li>PostgreSQL, MongoDB</li>
+                <li><b>NodeJS</b>/Express</li>
+                <li>Gulp, Webpack, eslint</li>
+                <li>C/C++</li>
+                <li>Photoshop, <b>Illustrator</b></li>
+                <li>Microsoft Office</li>
+                <li><b>Soft Skills</b></li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h3 class="section-title">Education</h3>
+        <div class="section-content">
+            <p>
+                <b>Taras Shevchenko National University of Kyiv</b><br>
+                Faculty of Information Technologies<br>
+                Network and Internet Technologies (2019-2024)<br>
+            </p>
+        </div>
+    </section>
+    <section>
+        <h3 class="section-title">Personal projects</h3>
+        <div class="section-content wide-section-content">
+            <div class="project-wrapper">
+                <img src="../images/game1.jpg" alt="@">
+                <div class="section-subcontent">
+                    <h4>SAIF Factory</h4>
+                    <p>Semi-artificial bots farm based on genetic algorithms</p>
+                </div>
+            </div>
+            <div class="project-wrapper">
+                <img src="../images/game2.jpg" alt="@">
+                <div class="section-subcontent">
+                    <h4>SnakeIO</h4>
+                    <p>Hybrid of classic snake game and popular AgarIO game</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="../js/ajax-utils.js"></script>
+<script src="../js/ajax-manager.js"></script>
+</body>
+</html>

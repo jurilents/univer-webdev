@@ -1,0 +1,603 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(fonts/ubuntu.eot) format("embedded-opentype");
+  src: url(fonts/ubuntu.eot?#iefix) format("embedded-opentype");
+  src: url(fonts/ubuntu.ttf) format("truetype");
+  src: url(fonts/ubuntu.woff) format("woff");
+  src: url(fonts/ubuntu.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(fonts/ubuntu-italic.eot) format("embedded-opentype");
+  src: url(fonts/ubuntu-italic.eot?#iefix) format("embedded-opentype");
+  src: url(fonts/ubuntu-italic.ttf) format("truetype");
+  src: url(fonts/ubuntu-italic.woff) format("woff");
+  src: url(fonts/ubuntu-italic.woff2) format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(fonts/ubuntu-bold.eot) format("embedded-opentype");
+  src: url(fonts/ubuntu-bold.eot?#iefix) format("embedded-opentype");
+  src: url(fonts/ubuntu-bold.ttf) format("truetype");
+  src: url(fonts/ubuntu-bold.woff) format("woff");
+  src: url(fonts/ubuntu-bold.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(fonts/ubuntu-light.eot) format("embedded-opentype");
+  src: url(fonts/ubuntu-light.eot?#iefix) format("embedded-opentype");
+  src: url(fonts/ubuntu-light.ttf) format("truetype");
+  src: url(fonts/ubuntu-light.woff) format("woff");
+  src: url(fonts/ubuntu-light.woff2) format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+.header {
+  background-color: #322B62;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 55px;
+  min-height: 180px;
+}
+.header .title-wrapper {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.header .title-wrapper {
+  padding: 35px 0 55px 12%;
+}
+.header h1, .header h2 {
+  color: white;
+  display: inline-block;
+}
+.header h1 {
+  font-size: 44px;
+  padding-bottom: 15px;
+}
+.header h2 {
+  font-size: 20px;
+  padding-left: 5px;
+}
+.header .language-switch {
+  position: absolute;
+  top: 20px;
+  right: 4%;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.001);
+  border-radius: 33px;
+}
+.header .language-switch:hover {
+  height: 119px;
+}
+.header .language-switch:hover .lang {
+  transition: top 0.075s ease-in;
+}
+.header .language-switch:hover .selected-lang:after {
+  opacity: 0;
+  transition: opacity 0.075s ease-in;
+}
+.header .language-switch:hover .lang-eng {
+  top: 0px;
+}
+.header .language-switch:hover .lang-rus {
+  top: 43px;
+}
+.header .language-switch:hover .lang-ukr {
+  top: 81px;
+}
+.header .language-switch .lang {
+  position: absolute;
+  top: 0;
+  display: block;
+  border-radius: 50%;
+  border: 2px solid #292350;
+  transition: top 0.2s ease-out;
+  overflow: hidden;
+  width: 30.6px;
+  height: 30.6px;
+}
+.header .language-switch .lang:not(.selected-lang) {
+  left: 3.6px;
+}
+.header .language-switch .lang-eng {
+  background-image: url(images/eng.svg);
+  z-index: 100;
+}
+.header .language-switch .lang-rus {
+  background-image: url(images/rus.svg);
+  z-index: 90;
+}
+.header .language-switch .lang-ukr {
+  background-image: url(images/ukr.svg);
+  z-index: 80;
+}
+.header .language-switch .selected-lang {
+  width: 36px;
+  height: 36px;
+  left: 0;
+}
+.header .language-switch .selected-lang:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 42%;
+  background-color: #000;
+  border-radius: 50%;
+  background-image: url(images/tiny-white-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 70%;
+  transition: opacity 0.2s ease-out;
+}
+
+aside {
+  position: absolute;
+  right: 5%;
+  top: -190px;
+  width: 270px;
+}
+aside:before {
+  content: "";
+  position: absolute;
+  left: 3%;
+  display: block;
+  width: 94%;
+  height: 100%;
+  background-color: #322B62;
+  border-radius: 200px;
+  opacity: 10%;
+}
+aside #employee-photo > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+aside .aside-content {
+  padding: 0 20px 75px 20px;
+}
+aside .aside-content .address {
+  padding: 30px 0 20px 0;
+  text-align: center;
+  font-size: 1.175em;
+}
+aside .contacts {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+aside .contacts:hover {
+  cursor: pointer;
+}
+aside .contacts .contacts-img {
+  display: block;
+  width: 33px;
+  height: 33px;
+  margin: 18px auto;
+  mask-size: cover;
+  background: #4d4297 no-repeat center center;
+  transition: all 0.25s ease;
+}
+aside .contacts .contacts-img:hover {
+  width: 38px;
+  height: 38px;
+  background-color: #282525;
+  transition: all 0.25s ease;
+}
+aside .contacts #img-email {
+  mask-image: url(images/email.svg);
+  -webkit-mask-image: url(images/email.svg);
+}
+aside .contacts #img-phone {
+  mask-image: url(images/phone.svg);
+  -webkit-mask-image: url(images/phone.svg);
+}
+aside .contacts #img-github {
+  mask-image: url(images/github.svg);
+  -webkit-mask-image: url(images/github.svg);
+}
+aside .contacts #img-linkedin {
+  mask-image: url(images/linkedin.svg);
+  -webkit-mask-image: url(images/linkedin.svg);
+}
+aside .contacts #img-telegram {
+  mask-image: url(images/telegram.svg);
+  -webkit-mask-image: url(images/telegram.svg);
+}
+aside .contacts a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.075em;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+}
+
+body.index-body {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #282628;
+}
+body.index-body header {
+  background-color: #353235;
+  height: 55px;
+  width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+body.index-body header .home {
+  display: block;
+  width: 35px;
+  height: 35px;
+  padding: 0 10px;
+  background-image: url(images/home.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+body.index-body header .home a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+body.index-body .socials {
+  height: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+}
+body.index-body .socials li {
+  list-style: none;
+  margin-left: 10px;
+}
+body.index-body .socials li a {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to top, #A6824B, #FFF194) no-repeat center center;
+  mask-size: cover;
+  border-radius: 50%;
+}
+body.index-body .socials li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #A6824B, #FFF194) no-repeat center center;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+body.index-body .socials li a:hover:after {
+  opacity: 1;
+  transition: opacity 0.33s ease-in;
+}
+body.index-body .socials li a.socials-telegram {
+  mask-image: url(images/telegram.svg);
+  -webkit-mask-image: url(images/telegram.svg);
+}
+body.index-body .socials li a.socials-github {
+  mask-image: url(images/github.svg);
+  -webkit-mask-image: url(images/github.svg);
+  width: 29.25px;
+  height: 29.25px;
+}
+body.index-body .socials li a.socials-linkedin {
+  mask-image: url(images/linkedin.svg);
+  -webkit-mask-image: url(images/linkedin.svg);
+}
+body.index-body .socials main {
+  height: 80%;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+body.index-body .socials p {
+  color: #f1e8aa;
+}
+body.index-body footer {
+  background-color: #353235;
+  height: 150px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+body.index-body .creative-society {
+  display: block;
+  height: 100px;
+  margin: 25px 10px 0 25px;
+}
+body.index-body .copyright {
+  height: auto;
+  padding: 15px 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+body.index-body .links li {
+  list-style: none;
+}
+body.index-body .links li a {
+  position: relative;
+  display: block;
+  min-height: 32px;
+  color: #f1e8aa;
+  text-decoration: none;
+}
+body.index-body .links li a:hover {
+  color: #ede294;
+}
+body.index-body .links li a:hover:before {
+  left: -17px;
+  transition: all 0.5s ease;
+}
+body.index-body .links li a:before {
+  content: "";
+  position: absolute;
+  top: 3.5px;
+  left: -24px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  background-image: url(images/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: left 0;
+  transition: all 0.5s ease;
+}
+body.index-body .big-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100px;
+  background-color: #f02626;
+  color: #f1e8aa;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 5px;
+  text-decoration: none;
+  padding-top: 50px;
+  transition: all 0.25s ease;
+}
+body.index-body .big-link:hover {
+  font-size: 40px;
+  color: yellow;
+  transition: all 0.25s ease;
+}
+
+#game-surface {
+  background-color: #f1e8aa;
+}
+
+@media (min-width: 1400px) {
+  .title-wrapper {
+    width: 1100px !important;
+    margin: 0 auto;
+  }
+
+  main {
+    width: 1100px !important;
+  }
+}
+@media (max-width: 1054px) {
+  main {
+    width: 95% !important;
+  }
+
+  section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 66% !important;
+  }
+  section .section-title {
+    text-align: center;
+  }
+  section .section-title:after {
+    margin: 0 auto;
+  }
+  section .section-content {
+    justify-content: space-evenly;
+  }
+
+  aside {
+    position: static;
+    width: 400px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  aside:before {
+    display: none;
+  }
+
+  #employee-photo {
+    width: 250px;
+  }
+
+  .aside-content {
+    width: 80%;
+    padding-bottom: 0 !important;
+  }
+
+  .contacts {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .contacts .text {
+    display: none;
+  }
+
+  .wide-section-content {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
+@media (max-width: 724px) {
+  section {
+    width: 88% !important;
+  }
+
+  .wide-section-content {
+    width: 95% !important;
+  }
+}
+html, body {
+  font-family: "Ubuntu", Calibri, Arial, sans-serif;
+  font-style: normal;
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: #fbfbfb;
+  background: linear-gradient(95deg, #fbfbfb 10%, #e9e9e9 20%, white 30%, #fbfbfb 70%, #e9e9e9 80%, #fbfbfb 90%);
+}
+
+b, h4, .bold, .section-title {
+  font-family: "Ubuntu-Bold", sans-serif;
+  font-weight: bold;
+}
+
+main {
+  position: relative;
+  width: 77%;
+  margin: 0 auto 50px auto;
+}
+
+section {
+  margin: 0 0 50px 0;
+  width: 60%;
+  letter-spacing: 0.033em;
+  line-height: 1.25em;
+}
+section .section-title {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 15px -5px;
+}
+section .section-title:after {
+  content: "";
+  display: block;
+  margin-top: 7px;
+  width: 75%;
+  height: 3px;
+  background-color: #322B62;
+  border-radius: 15%;
+}
+section .section-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-top: 8px;
+  font-size: 17px;
+  text-align: justify;
+}
+section .section-content.section-center {
+  justify-content: space-evenly;
+}
+section .section-content ul {
+  display: block;
+  width: 200px;
+  list-style: circle;
+  margin-bottom: 10px;
+}
+section .section-content .project-wrapper {
+  width: 290px;
+  height: auto;
+  margin-bottom: 40px;
+}
+section .section-content img {
+  width: 95%;
+  height: auto;
+  border-radius: 15px;
+}
+section .section-content .section-subcontent {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: left;
+}
+section .section-content .section-subcontent h4 {
+  padding: 12px 0 8px 0;
+}
+
+.wide-section-content {
+  width: 160%;
+}
+
+/*# sourceMappingURL=main.css.map*/
