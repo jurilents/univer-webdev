@@ -554,7 +554,7 @@ module.exports = function (it) {
 /***/ (function(module, exports) {
 
 var core = module.exports = {
-  version: '2.6.11'
+  version: '2.6.12'
 };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
@@ -1091,9 +1091,7 @@ module.exports = function fill(value
   var end = aLen > 2 ? arguments[2] : undefined;
   var endPos = end === undefined ? length : toAbsoluteIndex(end, length);
 
-  while (endPos > index) {
-    O[index++] = value;
-  }
+  while (endPos > index) O[index++] = value;
 
   return O;
 };
@@ -1127,10 +1125,8 @@ module.exports = function (IS_INCLUDES) {
       value = O[index++]; // eslint-disable-next-line no-self-compare
 
       if (value != value) return true; // Array#indexOf ignores holes, Array#includes - not
-    } else for (; length > index; index++) {
-      if (IS_INCLUDES || index in O) {
-        if (O[index] === el) return IS_INCLUDES || index || 0;
-      }
+    } else for (; length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
     }
     return !IS_INCLUDES && -1;
   };
@@ -1179,31 +1175,29 @@ module.exports = function (TYPE, $create) {
     var result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
     var val, res;
 
-    for (; length > index; index++) {
-      if (NO_HOLES || index in self) {
-        val = self[index];
-        res = f(val, index, O);
+    for (; length > index; index++) if (NO_HOLES || index in self) {
+      val = self[index];
+      res = f(val, index, O);
 
-        if (TYPE) {
-          if (IS_MAP) result[index] = res; // map
-          else if (res) switch (TYPE) {
-              case 3:
-                return true;
-              // some
+      if (TYPE) {
+        if (IS_MAP) result[index] = res; // map
+        else if (res) switch (TYPE) {
+            case 3:
+              return true;
+            // some
 
-              case 5:
-                return val;
-              // find
+            case 5:
+              return val;
+            // find
 
-              case 6:
-                return index;
-              // findIndex
+            case 6:
+              return index;
+            // findIndex
 
-              case 2:
-                result.push(val);
-              // filter
-            } else if (IS_EVERY) return false; // every
-        }
+            case 2:
+              result.push(val);
+            // filter
+          } else if (IS_EVERY) return false; // every
       }
     }
 
@@ -1249,10 +1243,8 @@ module.exports = function (that, callbackfn, aLen, memo, isRight) {
     }
   }
 
-  for (; isRight ? index >= 0 : length > index; index += i) {
-    if (index in self) {
-      memo = callbackfn(memo, self[index], index, O);
-    }
+  for (; isRight ? index >= 0 : length > index; index += i) if (index in self) {
+    memo = callbackfn(memo, self[index], index, O);
   }
 
   return memo;
@@ -1329,9 +1321,7 @@ var factories = {};
 
 var construct = function construct(F, len, args) {
   if (!(len in factories)) {
-    for (var n = [], i = 0; i < len; i++) {
-      n[i] = 'a[' + i + ']';
-    } // eslint-disable-next-line no-new-func
+    for (var n = [], i = 0; i < len; i++) n[i] = 'a[' + i + ']'; // eslint-disable-next-line no-new-func
 
 
     factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');
@@ -1517,9 +1507,7 @@ module.exports = {
         while (entry = entry ? entry.n : this._f) {
           f(entry.v, entry.k, this); // revert to the last existing entry
 
-          while (entry && entry.r) {
-            entry = entry.p;
-          }
+          while (entry && entry.r) entry = entry.p;
         }
       },
       // 23.1.3.7 Map.prototype.has(key)
@@ -1580,9 +1568,7 @@ module.exports = {
       var kind = that._k;
       var entry = that._l; // revert to the last existing entry
 
-      while (entry && entry.r) {
-        entry = entry.p;
-      } // get next entry
+      while (entry && entry.r) entry = entry.p; // get next entry
 
 
       if (!that._t || !(that._l = entry = entry ? entry.n : that._t._f)) {
@@ -1795,9 +1781,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
       var $instance = new C();
       var index = 5;
 
-      while (index--) {
-        $instance[ADDER](index, index);
-      }
+      while (index--) $instance[ADDER](index, index);
 
       return !$instance.has(-0);
     });
@@ -1841,7 +1825,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
 /***/ (function(module, exports) {
 
 var core = module.exports = {
-  version: '2.6.11'
+  version: '2.6.12'
 };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
@@ -2054,9 +2038,7 @@ module.exports = function (it) {
     var i = 0;
     var key;
 
-    while (symbols.length > i) {
-      if (isEnum.call(it, key = symbols[i++])) result.push(key);
-    }
+    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
   }
 
   return result;
@@ -3337,9 +3319,7 @@ var _createDict = function createDict() {
   iframeDocument.close();
   _createDict = iframeDocument.F;
 
-  while (i--) {
-    delete _createDict[PROTOTYPE][enumBugKeys[i]];
-  }
+  while (i--) delete _createDict[PROTOTYPE][enumBugKeys[i]];
 
   return _createDict();
 };
@@ -3410,9 +3390,7 @@ module.exports = __webpack_require__(/*! ./_descriptors */ "../node_modules/core
   var i = 0;
   var P;
 
-  while (length > i) {
-    dP.f(O, P = keys[i++], Properties[P]);
-  }
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
 
   return O;
 };
@@ -3560,15 +3538,11 @@ module.exports = function (object, names) {
   var result = [];
   var key;
 
-  for (key in O) {
-    if (key != IE_PROTO) has(O, key) && result.push(key);
-  } // Don't enum bug & hidden keys
+  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key); // Don't enum bug & hidden keys
 
 
-  while (names.length > i) {
-    if (has(O, key = names[i++])) {
-      ~arrayIndexOf(result, key) || result.push(key);
-    }
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~arrayIndexOf(result, key) || result.push(key);
   }
 
   return result;
@@ -3807,9 +3781,7 @@ module.exports = function (bitmap, value) {
 var redefine = __webpack_require__(/*! ./_redefine */ "../node_modules/core-js/modules/_redefine.js");
 
 module.exports = function (target, src, safe) {
-  for (var key in src) {
-    redefine(target, key, src[key], safe);
-  }
+  for (var key in src) redefine(target, key, src[key], safe);
 
   return target;
 };
@@ -4110,7 +4082,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(/*! ./_library */ "../node_modules/core-js/modules/_library.js") ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 /***/ }),
@@ -4287,9 +4259,7 @@ module.exports = function repeat(count) {
   var n = toInteger(count);
   if (n < 0 || n == Infinity) throw RangeError("Count can't be negative");
 
-  for (; n > 0; (n >>>= 1) && (str += str)) {
-    if (n & 1) res += str;
-  }
+  for (; n > 0; (n >>>= 1) && (str += str)) if (n & 1) res += str;
 
   return res;
 };
@@ -4398,9 +4368,7 @@ if (!setTask || !clearTask) {
     var args = [];
     var i = 1;
 
-    while (arguments.length > i) {
-      args.push(arguments[i++]);
-    }
+    while (arguments.length > i) args.push(arguments[i++]);
 
     queue[++counter] = function () {
       // eslint-disable-next-line no-new-func
@@ -4758,9 +4726,7 @@ if (__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/modules/_
     var length = list.length;
     var result = allocate(C, length);
 
-    while (length > index) {
-      result[index] = list[index++];
-    }
+    while (length > index) result[index] = list[index++];
 
     return result;
   };
@@ -4807,9 +4773,7 @@ if (__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/modules/_
     var length = arguments.length;
     var result = allocate(this, length);
 
-    while (length > index) {
-      result[index] = arguments[index++];
-    }
+    while (length > index) result[index] = arguments[index++];
 
     return result;
   }; // iOS Safari 6.x fails here
@@ -4943,9 +4907,7 @@ if (__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/modules/_
     var index = 0;
     if (len + offset > length) throw RangeError(WRONG_LENGTH);
 
-    while (index < len) {
-      this[offset + index] = src[index++];
-    }
+    while (index < len) this[offset + index] = src[index++];
   };
 
   var $iterators = {
@@ -5093,9 +5055,7 @@ if (__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/modules/_
           v: new $DataView(buffer)
         });
 
-        while (index < length) {
-          addElement(that, index++);
-        }
+        while (index < length) addElement(that, index++);
       });
       TypedArrayPrototype = TypedArray[PROTOTYPE] = create($TypedArrayPrototype$);
       hide(TypedArrayPrototype, 'constructor', TypedArray);
@@ -5299,16 +5259,12 @@ function packIEEE754(value, mLen, nBytes) {
     }
   }
 
-  for (; mLen >= 8; buffer[i++] = m & 255, m /= 256, mLen -= 8) {
-    ;
-  }
+  for (; mLen >= 8; buffer[i++] = m & 255, m /= 256, mLen -= 8);
 
   e = e << mLen | m;
   eLen += mLen;
 
-  for (; eLen > 0; buffer[i++] = e & 255, e /= 256, eLen -= 8) {
-    ;
-  }
+  for (; eLen > 0; buffer[i++] = e & 255, e /= 256, eLen -= 8);
 
   buffer[--i] |= s * 128;
   return buffer;
@@ -5325,17 +5281,13 @@ function unpackIEEE754(buffer, mLen, nBytes) {
   var m;
   s >>= 7;
 
-  for (; nBits > 0; e = e * 256 + buffer[i], i--, nBits -= 8) {
-    ;
-  }
+  for (; nBits > 0; e = e * 256 + buffer[i], i--, nBits -= 8);
 
   m = e & (1 << -nBits) - 1;
   e >>= -nBits;
   nBits += mLen;
 
-  for (; nBits > 0; m = m * 256 + buffer[i], i--, nBits -= 8) {
-    ;
-  }
+  for (; nBits > 0; m = m * 256 + buffer[i], i--, nBits -= 8);
 
   if (e === 0) {
     e = 1 - eBias;
@@ -5399,9 +5351,7 @@ function set(view, bytes, index, conversion, value, isLittleEndian) {
   var start = intIndex + view[$OFFSET];
   var pack = conversion(+value);
 
-  for (var i = 0; i < bytes; i++) {
-    store[start + i] = pack[isLittleEndian ? i : bytes - i - 1];
-  }
+  for (var i = 0; i < bytes; i++) store[start + i] = pack[isLittleEndian ? i : bytes - i - 1];
 }
 
 if (!$typed.ABV) {
@@ -6113,9 +6063,7 @@ $export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(/*! ./_st
     if (arguments.length > 1) index = Math.min(index, toInteger(arguments[1]));
     if (index < 0) index = length + index;
 
-    for (; index >= 0; index--) {
-      if (index in O) if (O[index] === searchElement) return index || 0;
-    }
+    for (; index >= 0; index--) if (index in O) if (O[index] === searchElement) return index || 0;
 
     return -1;
   }
@@ -6178,9 +6126,7 @@ $export($export.S + $export.F * __webpack_require__(/*! ./_fails */ "../node_mod
     var aLen = arguments.length;
     var result = new (typeof this == 'function' ? this : Array)(aLen);
 
-    while (aLen > index) {
-      createProperty(result, index, arguments[index++]);
-    }
+    while (aLen > index) createProperty(result, index, arguments[index++]);
 
     result.length = aLen;
     return result;
@@ -6275,9 +6221,7 @@ $export($export.P + $export.F * __webpack_require__(/*! ./_fails */ "../node_mod
     var cloned = new Array(size);
     var i = 0;
 
-    for (; i < size; i++) {
-      cloned[i] = klass == 'String' ? this.charAt(start + i) : this[start + i];
-    }
+    for (; i < size; i++) cloned[i] = klass == 'String' ? this.charAt(start + i) : this[start + i];
 
     return cloned;
   }
@@ -6502,9 +6446,7 @@ if (!(HAS_INSTANCE in FunctionProto)) __webpack_require__(/*! ./_object-dp */ ".
     if (typeof this != 'function' || !isObject(O)) return false;
     if (!isObject(this.prototype)) return O instanceof this; // for environment w/o native `@@hasInstance` logic enough `instanceof`, but add this:
 
-    while (O = getPrototypeOf(O)) {
-      if (this.prototype === O) return true;
-    }
+    while (O = getPrototypeOf(O)) if (this.prototype === O) return true;
 
     return false;
   }
@@ -7846,9 +7788,7 @@ var notify = function notify(promise, isReject) {
       }
     };
 
-    while (chain.length > i) {
-      run(chain[i++]);
-    } // variable length - can't use forEach
+    while (chain.length > i) run(chain[i++]); // variable length - can't use forEach
 
 
     promise._c = [];
@@ -8289,9 +8229,7 @@ var Enumerate = function Enumerate(iterated) {
 
   var key;
 
-  for (key in iterated) {
-    keys.push(key);
-  }
+  for (key in iterated) keys.push(key);
 };
 
 __webpack_require__(/*! ./_iter-create */ "../node_modules/core-js/modules/_iter-create.js")(Enumerate, 'Object', function () {
@@ -8622,9 +8560,7 @@ if (__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/modules/_
     });
   };
 
-  for (var keys = gOPN(Base), i = 0; keys.length > i;) {
-    proxy(keys[i++]);
-  }
+  for (var keys = gOPN(Base), i = 0; keys.length > i;) proxy(keys[i++]);
 
   proto.constructor = $RegExp;
   $RegExp.prototype = proto;
@@ -8806,9 +8742,7 @@ __webpack_require__(/*! ./_fix-re-wks */ "../node_modules/core-js/modules/_fix-r
       // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
       // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
 
-      for (var j = 1; j < result.length; j++) {
-        captures.push(maybeToString(result[j]));
-      }
+      for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
 
       var namedCaptures = result.groups;
 
@@ -9765,9 +9699,7 @@ var $defineProperties = function defineProperties(it, P) {
   var l = keys.length;
   var key;
 
-  while (l > i) {
-    $defineProperty(it, key = keys[i++], P[key]);
-  }
+  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
 
   return it;
 };
@@ -9860,13 +9792,9 @@ $export($export.G + $export.W + $export.F * !USE_NATIVE, {
 });
 
 for (var es6Symbols = // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'.split(','), j = 0; es6Symbols.length > j;) {
-  wks(es6Symbols[j++]);
-}
+'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'.split(','), j = 0; es6Symbols.length > j;) wks(es6Symbols[j++]);
 
-for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) {
-  wksDefine(wellKnownSymbols[k++]);
-}
+for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
 
 $export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
   // 19.4.2.1 Symbol.for(key)
@@ -9877,9 +9805,7 @@ $export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
   keyFor: function keyFor(sym) {
     if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
 
-    for (var key in SymbolRegistry) {
-      if (SymbolRegistry[key] === sym) return key;
-    }
+    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
   },
   useSetter: function useSetter() {
     setter = true;
@@ -9927,9 +9853,7 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
     var i = 1;
     var replacer, $replacer;
 
-    while (arguments.length > i) {
-      args.push(arguments[i++]);
-    }
+    while (arguments.length > i) args.push(arguments[i++]);
 
     $replacer = replacer = args[1];
     if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
@@ -10643,9 +10567,7 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
     if (!proto[ITERATOR]) hide(proto, ITERATOR, ArrayValues);
     if (!proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
     Iterators[NAME] = ArrayValues;
-    if (explicit) for (key in $iterators) {
-      if (!proto[key]) redefine(proto, key, $iterators[key], true);
-    }
+    if (explicit) for (key in $iterators) if (!proto[key]) redefine(proto, key, $iterators[key], true);
   }
 }
 

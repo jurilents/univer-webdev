@@ -166,85 +166,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.sass */ "./styles/main.sass");
 /* harmony import */ var _styles_main_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_main_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_ajax_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/ajax-utils */ "./scripts/ajax-utils.js");
-/* harmony import */ var _scripts_ajax_utils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_ajax_utils__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _scripts_ajax_worker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/ajax-worker */ "./scripts/ajax-worker.js");
-/* harmony import */ var _scripts_ajax_worker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scripts_ajax_worker__WEBPACK_IMPORTED_MODULE_2__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module './scripts/ajax-utils'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './scripts/ajax-worker'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 // If you want style your pure spaghetti html
 
 
 
-
-/***/ }),
-
-/***/ "./scripts/ajax-utils.js":
-/*!*******************************!*\
-  !*** ./scripts/ajax-utils.js ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function (global) {
-  // Set up a namespace for our utility
-  var ajaxUtils = {}; // Returns an HTTP request object
-
-  function getRequestObject() {
-    if (global.XMLHttpRequest) {
-      return new XMLHttpRequest();
-    } else if (global.ActiveXObject) {
-      // For very old IE browsers (optional)
-      return new ActiveXObject("Microsoft.XMLHTTP");
-    } else {
-      global.alert("Ajax is not supported!");
-      return null;
-    }
-  } // Makes an Ajax GET request to 'requestUrl'
-
-
-  ajaxUtils.sendGetRequest = function (requestUrl, responseHandler) {
-    var request = getRequestObject();
-
-    request.onreadystatechange = function () {
-      handleResponse(request, responseHandler);
-    };
-
-    request.open("GET", requestUrl, true);
-    request.send(null); // for POST only
-  }; // Only calls user provided 'responseHandler'
-  // function if response is ready
-  // and not an error
-
-
-  function handleResponse(request, responseHandler) {
-    if (request.readyState == 4 && request.status == 200) {
-      responseHandler(request);
-    }
-  } // Expose utility to the global object
-
-
-  global.$ajaxUtils = ajaxUtils;
-})(window);
-
-/***/ }),
-
-/***/ "./scripts/ajax-worker.js":
-/*!********************************!*\
-  !*** ./scripts/ajax-worker.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-window.onload = function () {
-  var iter = 1;
-  var name = document.getElementById("employee-name");
-
-  name.onclick = function () {
-    window.$ajaxUtils.sendGetRequest("https://reqres.in/api/users/" + iter, function (res) {
-      var json = JSON.parse(res.responseText);
-      console.log(json);
-    });
-  };
-};
 
 /***/ }),
 
